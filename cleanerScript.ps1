@@ -7,7 +7,7 @@ $savedPicturesFiles = Get-ChildItem -Path "$env:USERPROFILE\Pictures\Saved Pictu
 #Delete "Desktop" files
 echo "Deleting Desktop Files..."
 foreach ($file in $desktopFiles) {
-    del "$env:USERPROFILE\Desktop\$file"
+    del "$env:USERPROFILE\Desktop\$file" -Confirm:$false
 }
 #Safe Folder Shortcut Restoration
 $WshShell = New-Object -COMObject WScript.Shell
@@ -17,11 +17,11 @@ $Shortcut.Save()
 #Delete "Downloads" files
 echo "Deleting Downloads Files..."
 foreach ($file in $downloadsFiles) {
-    del "$env:USERPROFILE\Downloads\$file"
+    del "$env:USERPROFILE\Downloads\$file" -Confirm:$false
 }
 #Delete "Saved Pictures" Files
 echo "Deleting Saved Pictures Files..."
 foreach ($file in $savedPicturesFiles) {
-    del "$env:USERPROFILE\Pictures\Saved Pictures\$file"
+    del "$env:USERPROFILE\Pictures\Saved Pictures\$file" -Confirm:$false
 }
 
